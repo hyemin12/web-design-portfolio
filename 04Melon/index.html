@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Melon</title>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/jquery.bxslider.css">
+	<link rel="stylesheet" href="css/all.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="slick/slick.css">
+	<link rel="stylesheet" href="slick/slick-theme.css">
+
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.bxslider.js"></script>
+	<script src="slick/slick.min.js"></script>
+	<script type="text/javascript" src="slick/slick.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var vSlider = $(".vSlider").bxSlider({
+				auto:true,
+				controls:false,
+			});
+			$(".nextBtn").click(function(){
+				vSlider.goToNextSlide();
+			});
+			$(".preBtn").click(function(){
+				vSlider.goToPrevSlide();
+			});
+			var cThSlider = $(".con03-slider").bxSlider({
+				auto:true,
+				controls:false,
+				pager:false
+			});
+			$('.slickSlider').slick({
+				dots:true,
+				infinite: true,
+				draggable : true,
+				centerMode: true,
+				centerPadding: '65px',
+				slidesToShow: 5,
+				slidesToScroll: 1,
+				autoplay : true,
+				autoplaySpeed: 2000,
+				responsive: [
+					{
+				      breakpoint: 900,
+				      settings: {
+				        arrows: false,
+				        centerMode: false,
+				        slidesToShow: 3,
+				      }
+				    },
+				    {
+				      breakpoint: 700,
+				      settings: {
+				        arrows: false,
+				        centerMode: false,
+				        slidesToShow: 2,
+				      }
+				    },
+				    {
+				      breakpoint: 510,
+				      settings: {
+				        arrows: false,
+				        centerMode: false,
+				        
+				        slidesToShow: 2,
+				      }
+				    }
+				  ]
+			});
+			$(".con08-slider").bxSlider({
+				auto:true,
+				controls:false,
+			});
+			
+			var eSlider = $(".eSlider").bxSlider({
+				pager:false,
+				controls:false,
+				moveSlides:1,
+				slideWidth:315,
+				minSlides:3,
+				maxSlides:3,
+				slideMargin:0,
+				auto:false
+			});
+
+			$(".event-nextBtn").click(function(){
+				eSlider.goToNextSlide();
+			});
+
+			$(".event-preBtn").click(function(){
+				eSlider.goToPrevSlide();
+			});
+
+			$(".toggleMenu").click(function(){
+				var toggle = $(this).attr("class")
+
+				if(toggle == "toggleMenu"){
+					$(this).addClass("changeToggle");
+					$(".toggle").css({left:0},300);
+				}else{
+					$(this).removeClass("changeToggle");
+					$(".toggle").css({left:"100%"},300);
+				}
+			});
+
+			var menuPos = $(".headerWrap").offset().top;
+			var winHeight = $(document).height();
+
+			$(".menuPos").html(menuPos);
+
+			$(window).scroll(function(){
+				var scrollY = $(window).scrollTop();
+				$(".scrollY").html(scrollY);
+				if(winHeight/2 -1100 < scrollY){
+					$(".header-fixed").addClass("w100p");
+				}else{
+					$(".header-fixed").removeClass("w100p")
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<header id="header">
+		<div class="header-fixed">
+			<div class="headerWrap fixed clearfix">
+				<h1 class="logo"><a href="index.html">logo</a></h1>
+				<nav class="gnb">
+					<ul class="main clearfix">
+						<li><a href="forU.html">For U</a></li>
+						<li><a href="new.html">최신음악</a></li>
+						<li><a href="trend.html">인기음악</a></li>
+						<li><a href="add.html">더보기</a></li>
+						<li class="login"><a href="#">로그인</a></li>
+					</ul>
+				</nav>
+			</div> <!-- headerWrap -->
+		</div>
+		<div class="toggleNav">
+			<div class="toggleMenu">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>	
+			<ul class="toggle clearfix">
+				<li><a href="forU.html" class="active">For U</a></li>
+				<li><a href="new.html">최신음악</a></li>
+				<li><a href="trend.html">인기음악</a></li>
+				<li><a href="add.html#add.html">더보기</a></li>
+				<li class="login sub"><a href="#">로그인</a></li>
+			</ul>
+		</div>	
+	</header>		
+	<div id="main-container">
+		<div class="topBtn"><a href="#header"><span>∧</span><br>TOP</a></div>
+		<section id="visual">
+			<ul class="vSlider">
+				<li class="v-first">
+					<div class="txtWrap">
+						<div class="slider-txt">
+							<p>고막복지 멜론 이용권 특가</p>
+							<h3>2개월 50% 할인<span>!</span></h3>
+							<a href="#">자세히보기 ▶</a>
+						</div>
+						<div class="tablet">
+							<a href="#" class="tablet">
+								<img src="images/visual00-txt.png" alt="">
+							</a>
+						</div>
+					</div>
+				</li>
+				<li class="v-second">
+					<div class="txtWrap">
+						<div class="slider-txt">
+							<p>7월 한달간 멜론에서만! 신라면세점 면세 혜택!</p>
+							<h3>신라면세점 멜론DAY</h3>
+							<a href="https://www.melon.com/event/shilla/index.htm">자세히보기 ▶</a>
+							<div class="tablet">
+								<a href="https://www.melon.com/event/shilla/index.htm" class="tablet">
+									<img src="images/visual01-txt.png" alt="">
+								</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="v-third">
+					<a href="https://ticket.melon.com/performance/index.htm?prodId=205253" target="_blank">
+						<img src="images/visual-txt.png" alt="">
+					</a>
+				</li>
+			</ul>	
+			<div class="preBtn">
+				<img src="images/preBtn.png" alt="이전">
+			</div>
+			<div class="nextBtn">
+				<img src="images/nextBtn.png" alt="다음">
+			</div>
+		</section> <!-- visual -->
+		<div class="containerWrap">
+			<section id="main-content" class="clearfix">
+					<ul class="clearfix">
+						<li class="con01"><a href="trend.html">
+							<div class="conWrap">
+								<div class="icon"></div>
+								<p>인기/트랜드</p>
+							</div>
+						</a></li>
+						<li class="con02"><a href="https://youtu.be/LV1Es22E0RI" target="_blank">
+							<img src="images/con02.jpg" alt="we-go-up">
+							<div class="icon"></div>
+							<div class="hover-box">
+								<p>클릭시 Youtube로 연결됩니다.</p>
+							</div>
+						</a></li>
+						<li class="con03 clearfix">
+							<ul class="con03-slider">
+								<li>
+									<div class="cardbody">
+										<p class="title">NEW ALBUM</p>
+										<h3>싹쓰리</h3>
+										<p>2020년 7월 20일 데뷔 싱글 '다시 여기 바닷가' 발매</p>
+										<a href="#">더보기</a>
+									</div>
+									<img src="images/con03.jpg" alt="싹쓰리" class="imgs">						
+								</li>
+								<li>
+									<div class="cardbody">
+										<p class="title">NEW ALBUM</p>
+										<h3>라비</h3>
+										<p>사랑안에서 편안하게<br> 호흡할 수 있는 낙원</p>
+										<a href="#">더보기</a>
+									</div>
+									<img src="images/con03-1.jpg" alt="라비" class="imgs">						
+								</li>
+								<li>
+									<div class="cardbody">
+										<p class="title">NEW ALBUM</p>
+										<h3>소유</h3>
+										<p>2020년 7월 28일<br> 썸머 퀸의 귀환! GOTTA GO</p>
+										<a href="#">더보기</a>
+									</div>
+									<img src="images/con03-2.jpg" alt="소유" class="imgs">						
+								</li>
+							</ul>	
+						<li class="con04"><a href="new.html">
+							<img src="images/con04.jpg" alt="">
+							<div class="conWrap">
+								<div class="icon"></div>
+								<p>오늘 발매 음악</p>
+							</div>
+						</a></li>
+						<li class="con05"><a href="player.html">
+							<div class="conWrap">
+								<div class="icon"></div>
+								<p>뮤직플레이어</p>
+							</div>
+						</a></li>
+						<li class="con06">
+							<img src="images/con06.jpg" alt="">
+							<div class="box">
+								<a href="https://ticket.melon.com/main/index.htm" target="_blank">멜론티켓 바로가기</a>
+							</div>
+						</li>
+						<li class="con07"><a href="ticket.html">
+							<div class="conWrap">
+								<div class="icon"></div>
+								<p>이용권</p>
+							</div>
+						</a></li>
+						<li class="con08">
+							<ul class="con08-slider">
+								<li>
+									<img src="images/con08.jpg" alt="인기동영상-싹스리">
+									<div class="box">
+										<p class="tit">어제 많이 본 영상</p>
+										<h3>[놀면뭐하니] 심장폭격 주의! 싹스리 MV 비하인드<h3>
+										<p>조회수 : 196,209</p>
+										<p class="time">▶ 03:31</p>
+										<a href="javascript:void(0)">바로가기</a>
+									</div>
+								</li>
+								<li>
+									<img src="images/con08-1.jpg" alt="인기동영상-싹스리">
+									<div class="box">
+										<p class="tit">어제 많이 본 영상</p>
+										<h3>다시 여기 바닷가<h3>
+										<p>조회수 : 38,755</p>
+										<p class="time">▶ 04:21</p>
+										<a href="https://www.melon.com/video/detail2.htm?mvId=50223793&menuId=60010101" class="melon-tv">바로가기</a>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="con09"><a href="#">
+							<div class="conWrap">
+								<div class="icon"></div>
+								<p>검색</p>
+							</div>
+						</a></li>
+					</ul>
+			</section>
+		</div>
+		<section id="main-foru">
+			<div class="foruTxt">
+				<p class="title">For U</p>
+				<h3>매일 매일 음악 소확행!</h3>
+			</div>
+			<div class="slickSlider">
+				<div class="slide"><a href="mood.html">
+					<img src="images/main-music-01.jpg" alt="mood">
+					<div class="txtbox">
+						<h3>#mood</h3>
+						<p>내 방 침대 위를<br> 무드있게 해주는<br> 해외 알앤비 소울 팝</p>
+					</div>
+				</a></div>
+				<div class="slide"><a href="summer.html">
+					<img src="images/main-music-03.jpg" alt="mood">
+					<div class="txtbox">
+						<h3>여름 밤의 감성</h3>
+						<p>잠이 오지 않는 여름밤,<br> 잔잔한 분위기의 플레이리스트와 함께 해보는 건 어떨까요?</p>
+					</div>
+				</a></div>
+				<div class="slide"><a href="goto.html">
+					<img src="images/main-music-02.jpg" alt="mood">
+					<div class="txtbox">
+						<h3>가벼운 발걸음 출근송</h3>
+						<p>피곤한 아침에는 비타민처럼<br> 힘나는 팝송을 들으며 에너지를 충전해보세요.</p>
+					</div>
+				</a></div>
+				<div class="slide"><a href="idol.html">
+					<img src="images/main-music-04.jpg" alt="mood">
+					<div class="txtbox">
+						<h3>기분 UP! 아이돌 노래</h3>
+						<p>꿉꿉한 장마철,<br> 덥고 습한 기분을 Up시키는<br>아이돌노래와 함게해보세요!</p>
+					</div>
+				</a></div>
+				<div class="slide"><a href="nctdream.html">
+					<img src="images/main-music-05.jpg" alt="mood">
+					<div class="txtbox">
+						<h3>[취향저격] NCT DREAM 랜덤 플레이</h3>
+						<p>가장 많이 들은 아티스트<br> NCT DREAM의 가장 핫한 노래들로만 구성된 플레이리스트</p>
+					</div>
+				</a></div>
+				<div class="slide"><a href="javascript:void(0)">
+					<img src="images/main-music-06.jpg" alt="mood">
+					<div class="txtbox">
+						<h3>숨듣명 특집</h3>
+						<p>숨어 듣는 명곡을<br> 모아모아 담아놓은 스페셜한 <br>숨듣명 플레이리스트</p>
+					</div>
+				</a></div>
+			</div>
+		</section>	
+		<section id="main-event" class="clearfix">
+			<div class="event">
+				<div class="txtWrap">
+					<img src="images/event-icon.png" alt="" class="icon">
+					<h3>이벤트</h3>
+					<p>멜론에서 진행 중인 다양한 앨범 발매 기념 이벤트, 공연 이벤트를 확인하세요!<br>멜론 회원을 위한 혜택 !<br>멜론혜택관에서 확인하세요!</p>
+					<a href="#">이벤트 바로가기</a>
+				</div>
+			</div>
+			<div class="eSliderWrap">
+				<ul class="eSlider">
+					<li>
+						<img src="images/event01.jpg" alt="정은지">
+						<div class="cardbody">
+							<div class="cardtxt">
+								<p class="f12">[앨범 이벤트]</p>
+								<h3>정은지 [Simple] 앨범 발매 기념 이벤트</h3>
+								<p>기간 : 2020.07.15 ~ 2020.07.29</p>
+								<p>발표 : 2020.08.05</p>
+								<p>경품 : 사인 CD 3명</p>
+								<i class="fab fa-gratipay"></i>
+								<a href="#">이벤트 바로가기</a>
+							</div>	
+						</div>
+					</li>
+					<li>
+						<div class="cardbody back">
+							<div class="cardtxt">
+								<p class="f12">[멜론 이벤트]</p>
+								<h3>[멜론혜택관] 스페셜 혜택 - 멜론티켓 ...</h3>
+								<p>멜론 GOLD 이상,<br>누구나 공연 예매 수수료 0원!</p>
+								<p class="f11">*자세한 내용은 이벤트 페이지를 확인해주세요.</p>
+								<i class="fab fa-gratipay"></i>
+								<a href="#">이벤트 바로가기</a>
+							</div>	
+						</div>
+						<img src="images/event02.jpg" alt="멜론고객">
+					</li>
+					<li>
+						<img src="images/event03.jpg" alt="AJ Mitchell">					
+						<div class="cardbody">
+							<div class="cardtxt">
+								<p class="f12">[공연 이벤트]</p>
+								<h3>AJ Mitchell [Like Strangers Do]...</h3>
+								<p>기간 : 2020.07.17 ~ 2020.07.29</p>
+								<p>발표 : 2020.07.31</p>
+								<p>경품 : AJ Mitchell과 함께하는<br>프라이빗 온라인 팬미팅 초대</p>
+								<i class="fab fa-gratipay pt30"></i>
+								<a href="#">이벤트 바로가기</a>
+							</div>	
+						</div>
+					</li>
+					<li>
+						<div class="cardbody back">
+							<div class="cardtxt">
+								<p class="f12">[앨범 이벤트]</p>
+								<h3>규현 [Dreaming] 앨범 발매 이벤트</h3>
+								<p>기간 : 2020.07.23 ~ 2020.08.06</p>
+								<p>발표 : 2020.08.13</p>
+								<p>경품 : 스페셜 기프트 5명</p>
+								<i class="fab fa-gratipay"></i>
+								<a href="#">이벤트 바로가기</a>
+							</div>	
+						</div>
+						<img src="images/event04.jpg" alt="규현">
+					</li>
+				</ul>
+			</div>
+			<div class="button">
+				<div class="event-preBtn">
+					<img src="images/event-preBtn.png" alt="이전">
+				</div>
+				<div class="event-nextBtn">
+					<img src="images/event-nextBtn.png" alt="다음">
+				</div>
+			</div>
+		</section>		
+	</div> <!-- main-container -->
+	<footer id="footer">
+		<div class="footerWrap">
+			<h1><a href="index.html">logo</a></h1>
+			<div class="footerR clearfix">
+				<ul class="clearfix">
+					<li>회사소개</li>
+					<li>이용약관</li>
+					<li>개인정보처리방침</li>
+					<li>청소년보호정책</li>
+					<li>제휴/프로모션문의</li>
+					<li>이메일주소 무단수집거부</li>
+				</ul>
+				<address>(주)카카오  제주특별자치도 제주시 첨단로 242(영평동)  I  공동대표이사: 여민수,조수용  I  사업자등록번호 : 120-81-47521  I  통신판매업신고번호 : 제 2015-제주아라-0032호 </address>
+				<address>문의전화 : 1566-7727 (평일 09:00-18:00, 유료)  I  이메일 : melon_info@kakaocorp>com  I  호스팅서비스사업자 : (주)카카오 </address>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

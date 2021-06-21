@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Melon</title>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".toggleMenu").click(function(){
+				var toggle = $(this).attr("class")
+
+				if(toggle == "toggleMenu sub"){
+					$(this).addClass("changeToggle");
+					$(".toggle").css({left:0},300)
+				}else{
+					$(this).removeClass("changeToggle");
+					$(".toggle").css({left:"100%"},300)
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<header id="header" class="">
+		<div class="headerWrap sub clearfix">
+			<h1 class="logo"><a href="index.html">logo</a></h1>
+			<nav class="gnb">
+				<ul class="sub clearfix">
+					<li><a href="forU.html" class="active">For U</a></li>
+					<li><a href="new.html">최신음악</a></li>
+					<li><a href="#">인기음악</a></li>
+					<li><a href="#">더보기</a></li>
+					<li class="login sub"><a href="#">로그인</a></li>
+				</ul>
+		</div> <!-- headerWrap -->
+		<div class="toggleNav">
+			<div class="toggleMenu sub">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>	
+			<ul class="toggle clearfix">
+				<li><a href="forU.html" class="active">For U</a></li>
+				<li><a href="new.html">최신음악</a></li>
+				<li><a href="#">인기음악</a></li>
+				<li><a href="#">더보기</a></li>
+				<li class="login sub"><a href="#">로그인</a></li>
+			</ul>
+		</div>	
+	</header>
+	<div id="container">
+		<div class="topBtn"><a href="#header"><span>∧</span><br>TOP</a></div>
+		<section class="visual goto">
+			<div class="txtWrap">
+				<h3>가벼운 발걸음, 출근송</h3>
+				<p>피곤한 아침에는 비타민처럼 힘나는 팝송</p>
+			</div>
+			<div class="sub-tab">
+				<ul class="clearfix">
+					<li><a href="forU.html" class="active">For U</a></li>
+					<li><a href="today.html">오늘은 뭐 듣지?</a></li>
+					<li><a href="#">#테마장르</a></li>
+					<li><a href="#">에디터추천</a></li>
+				</ul>
+			</div>
+		</section>
+		<section class="content">
+			<div class="route">
+				<ul class="clearfix">
+					<li><a href="index.html">
+						<img src="images/icon-home.png" alt="main">
+					</a></li>
+					<li>
+						<img src="images/icon-home2.png" alt="next">
+					</li>
+					<li><a href="forU.html" class="active">For U</a></li>
+				</ul>
+			</div>
+			<img src="images/con-goto.jpg" alt="출근송" class="image">
+		</section>
+	</div>	<!-- container -->
+	<footer id="footer">
+		<div class="footerWrap">
+			<h1><a href="index.html">logo</a></h1>
+			<div class="footerR clearfix">
+				<ul class="clearfix">
+					<li>회사소개</li>
+					<li>이용약관</li>
+					<li>개인정보처리방침</li>
+					<li>청소년보호정책</li>
+					<li>제휴/프로모션문의</li>
+					<li>이메일주소 무단수집거부</li>
+				</ul>
+				<address>(주)카카오  제주특별자치도 제주시 첨단로 242(영평동)  I  공동대표이사: 여민수,조수용  I  사업자등록번호 : 120-81-47521  I  통신판매업신고번호 : 제 2015-제주아라-0032호 </address>
+				<address>문의전화 : 1566-7727 (평일 09:00-18:00, 유료)  I  이메일 : melon_info@kakaocorp>com  I  호스팅서비스사업자 : (주)카카오 </address>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

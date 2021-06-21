@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+/*font*/
+.engF{font-family: 'Roboto', sans-serif;letter-spacing:-2px;}
+body{font-family: 'Noto Sans KR', sans-serif;}
+
+#toggle_menu{display: none;}
+#fullpage{display: none;}
+
+.mobile{
+	position: absolute;top: 50%;left: 50%;transform:translate(-50%,-50%);
+	text-align: center;
+}

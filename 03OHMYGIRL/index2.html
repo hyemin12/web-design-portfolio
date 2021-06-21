@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>7th mini album [Nonstop]</title>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/fullpage.css">
+	<link rel="stylesheet" href="css/font.css">
+	<link rel="stylesheet" href="css/colorbox.css">
+	<link rel="stylesheet" href="css/all.css">
+	<link rel="stylesheet" href="slick/slick.css">
+	<link rel="stylesheet" href="slick/slick-theme.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.fullPage.js"></script>
+	<script src="js/jquery.colorbox-min.js"></script>
+	<script src="slick/slick.min.js"></script>
+	<script>
+		$(function(){
+			$("#fullpage").fullpage({
+				navigation:true,
+				navigationPosition:"right",
+				anchors:["a1st","a2st","a3st","a4st","a5st"],
+				afterLoad:function(anchorslink,index){
+					console.log(anchorslink+", "+index);
+					if(index==2){
+						$("#onviewOne").addClass("move");
+					}else{
+						$("#onviewOne").removeClass("move");
+					}
+					if(index==4){
+						$("#onViewFour").addClass("move");
+					}else{
+						$("#onViewFour").removeClass("move");
+					}
+				}
+			});
+			var i = 0;
+			$(".btn .next").click(function(){
+				i++;
+				if(i==9){i=0};
+				slideMove();
+			});
+			$(".btn .prev").click(function(){
+				i--;
+				if(i==-1){i=9};
+				slideMove();
+			})
+			function slideMove(){
+				var num = i * 354 * -1;
+				$(".photocard>ul").stop().animate({left:num},300);
+				console.log(i);
+				console.log(num);
+			};
+			$('a.colorBox').colorbox({
+				iframe:true,
+				innerWidth:1000,
+				innerHeight:600
+			});
+			$(".youtube").colorbox({
+				iframe:true,
+				innerWidth: 960,
+				innerHeight:535
+			});
+
+
+			//카운트다운
+			CountDownTimer('9/26/2020', 'countdown');
+			function CountDownTimer(dt, id){
+
+			var end = new Date(dt);
+
+			var _second = 1000;
+			var _minute = _second * 60;
+			var _hour = _minute * 60;
+			var _day = _hour * 24;
+			var timer;
+
+			function showRemaining() {
+			var now = new Date();
+			var distance = end - now;
+
+			var days = Math.floor(distance / _day);
+			var hours = Math.floor((distance % _day) / _hour);
+			var minutes = Math.floor((distance % _hour) / _minute);
+			var seconds = Math.floor((distance % _minute) / _second);
+
+			document.getElementById(id).innerHTML = days + ' : ';
+			document.getElementById(id).innerHTML += hours + ' : ';
+			document.getElementById(id).innerHTML += minutes + ' : ';
+			document.getElementById(id).innerHTML += seconds;
+			}
+
+			timer = setInterval(showRemaining, 1000);
+			}
+
+			//slick
+			$("#slick").slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false,
+				fade: true,
+				infinite:true,
+				autoplay: true,
+				autoplaySpeed: 3000,
+			});
+
+			//toggle
+			$(".toggle").click(function(){
+				var toggle = $(this).attr("class");
+				if(toggle == "toggle"){
+					$(this).addClass("sChange");
+					$(".menuWrap").animate({left:0});		
+				}else{
+					$(this).removeClass("sChange");
+					$(".menuWrap").animate({left:"100%"});
+				}
+			});	
+			$(".menuWrap li").click(function(){
+				$(".menuWrap").animate({left:"100%"});
+				$(".toggle").removeClass("sChange");
+			})
+
+		});
+	</script>
+</head>
+<body>
+	<div id="fullpage">
+		<section class="section" id="page1" data-anchor="a1st">
+			<div class="trans"></div>
+			<div id="slick">
+				<div class="slide1">
+					<img src="images/" alt="">
+				</div>
+				<div class="slide2">
+					<img src="" alt="">
+				</div>
+			</div>
+			<h1 class="logo"><a href="index.html#a1st">LOGO</a></h1>
+			<div class="txtWrap">
+				<p>OH MY GIRL [NONSTOP]</p>
+				<h3>2020.04.27 6PM</h3>
+				<div class="time">
+					<h2 id="countdown"></h2>
+				</div>	
+			</div>	
+			<div class="toggle">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>
+			<div class="menuWrap">
+				<ul>
+					<li><a href="#a2st">HOME</a></li>
+					<li><a href="#a3st">MV</a></li>
+					<li><a href="#a4st">PHOTO</a></li>
+					<li><a href="#a5st">EVENT</a></li>
+				</ul>
+			</div>
+			<div class="scroll">
+				<div class="roll"></div>
+			</div>
+		</section>
+		<section class="section" id="page2" data-anchor="a2st">
+			<div class="main" id="onviewOne">
+				<div class="card">
+					<ul class="clearfix">
+						<li class="profile"><a href="profile2.html">
+							<img src="images/page2-01.jpg" alt="아티스트프로필">
+						</a></li>
+						<li class="album"><a href="album.html">
+							<img src="images/page2-02.jpg" alt="앨범소개">
+						</a></li>
+						<li class="highlight">
+							<a href="https://www.youtube.com/embed/obesWjbPUo0" class="youtube"><img src="images/page2-03.jpg" alt="하이라이트">
+						</a></li>
+					</ul>
+				</div>			
+			</div> <!-- main -->			
+		</section>
+		<section class="section" id="page3" data-anchor="a3st">
+			<div class="bg"></div>
+			<div class="icon"><a href="https://www.youtube.com/embed/iDjQSdN_ig8" class="youtube">
+				<img src="images/icon-video.png" alt="">
+			</a></div>
+			<div class="bubbleWrap">
+				<div class="bubble b1"></div>
+				<div class="bubble b2"></div>
+				<div class="bubble b3"></div>
+				<div class="bubble b4"></div>
+				<div class="bubble b5"></div>
+				<div class="bubble b6"></div>
+				<div class="bubble b7"></div>
+			</div>	
+		</section>
+		<section class="section" id="page4" data-anchor="a4st">
+			<div class="logo">
+				<img src="images/logo-nonstop.png" alt="">
+			</div>
+			<div class="content clearfix" id="onViewFour">
+				<div class="bodyleft">
+					<div class="title">
+						<img src="images/title-phoca.png" alt="">
+					</div>
+					<p>‘CHACE’ ver ‘QUEST’ ver 멤버별 컨셉 포토를 확인하세요.</p>
+					<div class="btn clearfix">
+						<div class="prev">
+							<img src="images/prev.png" alt="">
+						</div>
+						<div class="next">
+							<img src="images/next.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="photocard">
+					<ul class="clearfix">
+						<li class="phocaOne">
+							<img src="images/phoca01.jpg" alt="">
+							<div class="hoverimg">
+								<img src="images/artist01.jpg" alt="">
+							</div>
+						</li>
+						<li class="phocaTwo">
+							<img src="images/phoca02.jpg" alt="">
+							<div class="hoverimg">
+								<img src="images/artist02.jpg" alt="">
+							</div>
+						</li>
+						<li class="phocaOne">
+							<img src="images/phoca01.jpg" alt="">
+							<div class="hoverimg">
+								<img src="images/artist03.jpg" alt="">
+							</div>
+						</li>
+						<li class="phocaTwo">
+							<img src="images/phoca02.jpg" alt="">
+							<div class="hoverimg">
+								<img src="images/artist04.jpg" alt="">
+							</div>
+						</li>
+						<li class="phocaOne">
+							<img src="images/phoca01.jpg" alt="">
+							<div class="hoverimg">
+								<img src="images/artist05.jpg" alt="">
+							</div>
+						</li>
+						<li class="phocaTwo">
+							<img src="images/phoca02.jpg" alt="">
+							<div class="hoverimg">
+								<img src="images/artist06.jpg" alt="">
+							</div>
+						</li>
+						<li  class="phocaOne">
+							<img src="images/phoca01.jpg" alt="">
+							<div class="hoverimg">
+								<img src="images/artist07.jpg" alt="">
+							</div>
+						</li>
+						<li class="phocaTwo">
+							<img src="images/phoca01.jpg" alt="">
+							<div class="hoverimg">
+								<img src="images/artist08.jpg" alt="">
+							</div>
+						</li>
+						<li class="phocaOne">
+							<img src="images/phoca02.jpg" alt="">
+							<div class="hoverimg">
+								<img src="images/artist09.jpg" alt="">
+							</div>
+						</li>
+						<li class="phocaTwo">
+							<img src="images/phoca01.jpg" alt="">
+							<div class="hoverimg">
+								<img src="images/artist10.jpg" alt="">
+							</div>
+						</li>
+						<li class="phocaOne">
+							<img src="images/phoca02.jpg" alt="">
+							<div class="hoverimg">
+								<img src="images/artist11.jpg" alt="">
+							</div>
+						</li>
+						<li class="phocaTwo">
+							<img src="images/phoca01.jpg" alt="">
+							<div class="hoverimg">
+								<img src="images/artist12.jpg" alt="">
+							</div>
+						</li>
+					</ul>
+				</div>		
+			</div>
+		</section>
+		<section class="section" id="page5" data-anchor="a5st">
+			<div class="box">
+				<img src="images/bg-pg5.jpg" alt="">
+			</div>
+			<div class="logo">
+				<img src="images/logo-nonstop2.png" alt="">
+			</div>
+			<div class="event">
+				<ul class="clearfix">
+					<li><a href="eventpopup02.html" class="colorBox">
+						<img src="images/event01.png" alt="">
+						<div class="eventhover">
+							<p>이벤트<br>상세내용</p>
+						</div>
+					</a></li>
+					<li><a href="https://www.youtube.com/embed/iDjQSdN_ig8" class="youtube">
+						<img src="images/event02.png" alt="">
+						<div class="eventhover">
+							<p>뮤직비디오<br>보러가기</p>
+						</div>
+					</a></li>
+					<li><a href="eventpopup01.html" class="colorBox">
+						<img src="images/event03.png" alt="">
+						<div class="eventhover">
+							<p>이벤트<br>상세내용</p>
+						</div>
+					</a></li>
+					<li><a href="eventpopup.html" class="colorBox">
+						<img src="images/event04.png" alt="">
+						<div class="eventhover">
+							<p>이벤트<br>상세내용</p>
+						</div>
+					</a></li>
+				</ul>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>Suwon Samsung Blue Wings</title>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script>
+		$(function(){
+			$(".introMenu li").hover(function(){
+				$(this).find(".card-view").show();
+				$(this).find(".card-body").hide();
+			},function(){
+				$(this).find(".card-view").hide();
+				$(this).find(".card-body").show();
+			})
+		});
+	</script>
+</head>
+<body>
+	<div class="bodyWrap">
+		<video id="introVideo" autoplay muted loop>
+			<source src="bg-intro.mp4" type="video/mp4">
+		</video>
+		<div class="overlay"></div>
+		<h1 class="logo">LOGO</h1>
+		<div class="s-logo">
+			<img src="" alt="">
+		</div>
+		<div class="introMenu">
+			<ul class="clearfix">
+				<li class="off">
+					<div class="card-body">
+						<p>Professional Team</p>
+						<h3>bluewings</h3>
+					</div>
+					
+					<div class="card-view" style="display: none;">
+						<p>Professional Team</p>
+						<h3>bluewings</h3>
+						<div class="text">
+							<span class="deco">"영원한 승리의 푸른 날개"</span><br>
+							<span>1995년 12월 15일에 창단한 대한민국의 K리그1 소속 프로축구단</span>
+						</div>
+						<a href="main.html">사이트 바로가기</a>
+					</div>
+
+				</li>
+				<li class="off">
+					<div class="card-body">
+						<p>유소년 축구팀</p>
+						<h3>YOUTH</h3>
+					</div>
+
+					<div class="card-view" style="display: none;">
+						<p>유소년 축구팀</p>
+						<h3>YOUTH</h3>
+						<div class="text">
+							<span>수원삼성 유스시스템의 철학, 교육프로그램, 선수단을 확인할 수 있는 홈페이지입니다.</span>
+						</div>
+						<a href="#">사이트 준비중</a>
+					</div>
+				</li>
+				<li class="off">
+					<div class="card-body">
+						<p>축구 교실 시스템</p>
+						<h3>ACADEMY</h3>
+					</div>
+
+					<div class="card-view" style="display: none;">
+						<p>축구 교실 시스템</p>
+						<h3>ACADEMY</h3>
+						<div class="text">
+							<span style="color:#fff">"Little Wings"</span><br>
+							<span>유소년 인재를 발굴하는 선진형 클럽 시스템의 출발점</span>
+						</div>
+						<a href="#">사이트 준비중</a>
+					</div>
+				</li>
+				<li class="off">
+					<div class="card-body">
+						<p>지역소상인들과 함께,</p>
+						<h3>Blue Sponsor</h3>
+					</div>
+
+					<div class="card-view" style="display: none;">
+						<p>지역소상인들과 함께,</p>
+						<h3>Blue Sponsor</h3>
+						<div class="text">
+							<span>수원삼성 스폰서십 프로그램을 수원의 풀뿌리 지역 경제를 이루고 있는 소상공인들도 참여할 수 있도록 개발한 후원 프로그램</span>
+						</div>
+						<a href="#">사이트 준비중</a>
+					</div>
+				</li>
+				<li class="off">
+					<div class="card-body">
+						<p>Supportors</p>
+						<h3>Frente Tricolor</h3>
+					</div>
+
+					<div class="card-view" style="display: none;">
+						<p>Supportors</p>
+						<h3>Frente Tricolor</h3>
+						<div class="text">
+							<span style="font-style:italic;">"수원 언제나 우린 너와 함께 해"</span><br>
+							<span>그랑블루(Grand Bleu) 그리고 프렌테 트리콜로(Frente Tricolor)만을 위한 FAN ZONE</span>
+						</div>
+						<a href="#">사이트 준비중</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

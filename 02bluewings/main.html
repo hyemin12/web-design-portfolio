@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>수원삼성블루윙즈</title>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="slick/slick.css">
+	<link rel="stylesheet" href="slick/slick-theme.css">
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="slick/slick.js"></script>
+	<script src="slick/slick.min.js"></script>
+	<script>
+		$(function(){
+			$(".slide").slick({
+				infinite: true,
+				autoplay: true,
+  				autoplaySpeed: 2000,
+				dots:true,
+			});
+
+			var current = 0;
+			var banner = $(".imgWrap li");
+			var i;
+			var overbtn=false;
+
+			function prevMove(){
+				if(overbtn==false){
+					overbtn=true;
+					i = current - 1;
+					if(i == -1){i=4};
+
+					slideMove("prev");
+				}		
+			}
+			function nextMove(){
+				if(overbtn==false){
+					overbtn=true;
+					i = current + 1;
+					if(i == 5){i=0};
+					
+					slideMove("next");
+				}	
+			}
+			function slideMove(view){
+				var currentEl = banner.eq(current);
+				var nextEl = banner.eq(i);
+
+				if(view == "prev"){
+					currentEl.css({left:0}).stop().animate({left:"100%"},1000,function(){overbtn=false});
+					nextEl.css({left:"-100%"}).stop().animate({left:"0"},1000);
+				}else{
+					currentEl = banner.eq(current);
+					nextEl = banner.eq(i);
+
+					currentEl.css({left:0}).stop().animate({left:"-100%"},1000,function(){overbtn=false});
+					nextEl.css({left:"100%"}).stop().animate({left:"0"},1000);
+				}
+				
+				current = i;
+				
+			}
+			$(".prev").click(function(){
+				prevMove();
+			})
+			$(".next").click(function(){
+				nextMove();
+			})
+			function trigger(){
+				$(".next").trigger("click");
+				$(".btn-next").trigger("click");
+			}
+			setInterval(trigger,5000);
+
+			var y = 0;
+			$(".btn-prev").click(function(){
+				y--;
+				if(y==-1){y=4};
+				
+				detailMove();
+			})
+			$(".btn-next").click(function(){
+				y++;
+				if(y==5){y=0};
+				
+				detailMove();
+			})
+			function detailMove(){
+				console.log(y);
+				var num = y * 890 *-1;
+				$(".detail>ul").stop().animate({left:num},300);
+				console.log(num);
+			}
+		});
+	</script>
+</head>
+<body>
+	<header id="header">
+		<div id="top-header">
+			<div class="prideWrap">
+				<div class="pride">
+					<img src="images/pride.png" alt="">
+				</div>
+			</div>
+		</div>
+		<div id="main-header">
+			<div class="menuWrap">
+				<h1 class="logo"><a href="main.html">LOGO</a></h1>
+				<div id="main-menu">
+					<ul class="clearfix f18">
+						<li><a href="#">CLUB</a></li>
+						<li><a href="#">TEAM</a></li>
+						<li><a href="#">MATCH</a></li>
+						<li><a href="#">NEWS</a></li>
+						<li><a href="#">BLUEWINGS TV</a></li>
+						<li><a href="http://ticket.interpark.com/Contents/Sports/GoodsInfo?SportsCode=07002&TeamCode=PS003" target="_blank">TICKET</a></li>
+						<li class="mr0"><a href="http://www.bluewingsshop.com/" target="_blank">SHOPPING</a></li>
+					</ul>
+					<div class="bar"></div>
+				</div>
+				
+			</div>
+		</div>
+	</header>
+	<div id="visual">
+		<div class="slide">
+			<div class="slide01">
+				<video id="visual01" autoplay loop muted>
+					<source src="visual-01.mp4" type="video/mp4">
+				</video>
+				<div class="overlay"></div>
+				<div class="txtwrap">
+					<h3>‘도이치 모터스 브랜드데이’ 12일부터 예매 오픈!</h3>
+					<p>8월 15일 (토) 19:00, 수원삼성블루윙즈와 전북현대의 경기가 12일 예매가 오픈됩니다! </p>
+					<!-- <a href="#">MORE</a> -->
+				</div>
+			</div>
+			<div class="slide02">
+				<div class="txtwrap">
+					<h3>변경된 티켓 정책 안내</h3>
+					<p>2020년 시즌권 사용 불가</p>
+					<p>관중석 거리두기 방침에 따른 전 좌석 지정석 운영</p>
+					<p>2020 시즌 연간회원권 환불 신청시 전액환불</p>
+				</div>
+			</div>
+			<div class="slide03">
+				
+			</div>
+		</div>
+	</div> <!-- visual -->
+	<div id="main-container">
+		<section class="plan">
+			<div class="planWrap clearfix">
+				<div class="ranking">
+					<h3>11위</h3>
+				</div>
+				<div class="league clearfix">
+					<div class="btn-prev">
+						<img src="images/visual-btn-prev.png" alt="">
+					</div>
+					<div class="detail">
+						<ul class="clearfix">
+							<li>
+								<img src="images/detail-01.png" alt="">
+							</li>
+							<li>
+								<img src="images/detail-02.png" alt="">
+							</li>
+							<li>
+								<img src="images/detail-03.png" alt="">
+							</li>
+							<li>
+								<img src="images/detail-04.png" alt="">
+							</li>
+							<li>
+								<img src="images/detail-05.png" alt="">
+							</li>
+						</ul>	
+
+					</div>
+					<div class="btn-next">
+						<img src="images/visual-btn-next.png" alt="">
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="news">
+			<h3 class="title f32">NEWS</h3>
+			<div class="body">
+				<ul class="clearfix">
+					<li><a href="#">
+						<div class="img">
+							<img src="images/news01.jpg" alt="">
+						</div>
+						<div class="txt">
+							<strong>수원삼성, 전북전에 창단 25주년 기념 유니폼 입는다!</strong>
+							<span>2020-08-12</span>
+						</div>
+					</a></li>
+					<li><a href="#">
+						<div class="img">
+							<img src="images/news02.jpg" alt="">
+						</div>
+						<div class="txt">
+							<strong>‘도이치 모터스 브랜드데이’ 12일부터 예매 오픈!</strong>
+							<span>2020-08-11</span>
+						</div>
+					</a></li>
+					<li><a href="#">
+						<div class="img">
+							<img src="images/news03.jpg" alt="">
+						</div>
+						<div class="txt">
+							<strong>‘K리그 데뷔골’ 박상혁 도이치 모터스 7월 MVP !</strong>
+							<span>2020-08-10</span>
+						</div>
+					</a></li>
+					<li class="mr0"><a href="#">
+						<div class="img">
+							<img src="images/news04.jpg" alt="">
+						</div>
+						<div class="txt">
+							<strong>염기훈 ‘FA컵 40경기 출전’의 남다른 의미</strong>
+							<span>2020-07-30</span>
+						</div>
+					</a></li>
+				</ul>
+			</div>
+		</section>
+		<section class="bluewingstv clearfix">
+			<h3 class="title f32 mb20">BLUEWINGS TV</h3>
+			<div class="main-video"><a href="https://youtu.be/QYAQyVVUfZk" target="_blank">
+				<img src="images/video-main.jpg" alt="">
+				<div class="titleWrap">
+					<div class="icon"></div>
+					<p>수원삼성 창단 25주년 기념 유니폼 공개</p>
+				</div>
+				<div class="play">
+					<div class="icon">
+						<img src="images/play.png" alt="">
+					</div>	
+						<p>클릭 시 유튜브로 연결됩니다.</p>
+				</div>
+			</a></div>
+			<div class="thumb">
+				<div class="cardbody clearfix"><a href="https://youtu.be/SC7uCd5gESc" target="_blank">
+					<div class="img">
+						<img src="images/video-thumb01.jpg" alt="">
+						<div class="txt">
+							<p>[푸른티어캠] EYES ON BLUEWINGS_울산전 되돌아보기</p>
+							<span>2020-08-12</span>
+						</div>
+					</div>
+				</a></div>
+				<div class="cardbody clearfix"><a href="https://youtu.be/p802AH5lK9Q" target="_blank">
+					<div class="img">
+						<img src="images/video-thumb02.jpg" alt="">
+						<div class="txt">
+							<p>[트레일러]팬들과 165일 만에 함께하는 홈경기 D-1</p>
+							<span>2020-08-01</span>
+						</div>
+					</div>
+				</a></div>
+				<div class="cardbody clearfix"><a href="https://youtu.be/Sxc9Hgpm-U0" target="_blank">
+					<div class="img">
+						<img src="images/video-thumb03.jpg" alt="">
+						<div class="txt">
+							<p>[도이치 모터스 7월 MVP] 팬들이 직접 뽑는 도이치 모터스 7월 MVP, 후보 3인 공개!</p>
+							<span>2020-07-30</span>
+						</div>
+					</div>
+				</a></div>
+				<div class="cardbody clearfix mb0"><a href="https://youtu.be/IhXcEund-II" target="_blank">
+					<div class="img">
+						<img src="images/video-thumb04.jpg" alt="">
+						<div class="txt">
+							<p>수원삼성 vs 성남FC 랜선 빅버드 #집에서함께해요</p>
+							<span>2020-07-19</span>
+						</div>
+					</div>
+				</a></div>
+			</div>
+		</section>
+		<section class="direct">
+			<ul class="clearfix">
+				<li><a onclick="alert('사이트 준비중입니다')">YOUTH 바로가기</a></li>
+				<li><a onclick="alert('사이트 준비중입니다')">ACADEMY 바로가기</a></li>
+				<li><a onclick="alert('사이트 준비중입니다')">BLUE SPONSOR 바로가기</a></li>
+				<li class="mr0"><a onclick="alert('사이트 준비중입니다')">FRENTE TRICOLO 바로가기</a></li>
+			</ul>
+		</section>
+		<section class="partner">
+			<h3 class="title f32 mb20">PARTNER</h3>
+			<div class="partnerSlider clearfix">
+				<div class="prev">
+					<img src="images/partner-btn-prev.png" alt="">
+				</div>
+				<div class="imgWrap">
+					<ul class="clearfix">
+						<li><img src="images/partner01.jpg" alt=""></li>
+						<li><img src="images/partner02.jpg" alt=""></li>
+						<li><img src="images/partner03.jpg" alt=""></li>
+						<li><img src="images/partner04.jpg" alt=""></li>
+						<li><img src="images/partner05.jpg" alt=""></li>
+					</ul>
+				</div>
+				<div class="next">
+					<img src="images/partner-btn-next.png" alt="">
+				</div>
+			</div>
+		</section>
+	</div> <!-- main-container -->
+	<footer id="footer">
+		<div class="footerWrap clearfix">
+			<h1 class="logo">LOGO</h1>
+			<div class="adress">
+				<address>16230) 경기도 수원시 팔달구 월드컵로 310 수원월드컵경기장 4층 | TEL : 031-247-2002 | 개인정보처리방침 | 영상정보처리기기 운영관리 방침</adress>
+				<address>copyrightⓒ suwon samsung bluewings football club. Allright reserved</address>
+			</div>
+			<div class="sns">
+				<ul class="clearfix">
+					<li><a href="https://www.facebook.com/SuwonSamsungFC">facebook</a></li>
+					<li><a href="https://www.instagram.com/suwonsamsungfc/">insta</a></li>
+					<li><a href="https://www.youtube.com/channel/UCI8kK3Qzm8l2f4_ayqIKqMQ">youtube</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
+

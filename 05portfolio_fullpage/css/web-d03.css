@@ -1,0 +1,133 @@
+@charset "utf-8";
+
+/*body*/
+* {margin: 0;padding: 0;box-sizing:border-box;}
+li {list-style:none;}
+a {text-decoration:none;transition:0.5s;}
+a:link, a:visited {color:#222;text-decoration:none;}
+body {font-family: 'Noto Sans KR', sans-serif;font-weight: 400;}
+
+/*.row {display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; margin-right: -15px; margin-left: -15px;}*/
+
+
+/*header*/
+#header {}
+#header .container {width: 1260px;height: 100px;position: relative;}
+
+/*logo*/
+#header .container h1 {width: 185px;position: absolute;}
+#header .container h1 a {display: block;height: 56px;background:url(../img/web-d03/logo.png) no-repeat;text-indent:-9999px;}
+
+/*nav*/
+#header .container .main-nav {position: absolute;right: 0;top: 35px;}
+#header .container .main-nav ul {}
+#header .container .main-nav li {float: left;margin-right: 50px;}
+#header .container .main-nav li a {display: block;}
+#header .container .main-nav li a:hover {color:#8dc63f;font-weight: 500;}
+
+
+/*mobile nav*/
+#header .container .mobile-nav {position:fixed;top: 0;left: 0;}
+
+
+
+/*main slide*/
+#myCarousel {width: 100%;height: 610px;}
+#myCarousel .carousel-inner .item {width:100%;height:610px;background-image:url(../img/web-d03/main-banner01.jpg);background-size:cover;}
+#myCarousel .carousel-caption {top:50%;transform:translateY(-35%);}
+#myCarousel .carousel-caption h3 {color:#fff;font-size:45px;font-weight: 600;margin-bottom:20px;}
+#myCarousel .carousel-caption h3 span {color:#8dc63f;}
+#myCarousel .carousel-caption p {font-size:24px;font-weight: 400;}
+
+
+/*pager*/
+.carousel-indicators li {width: 40px;height: 6px;background:#eaeaea;border:0;border-radius:2px;margin: 0 1px;}
+.carousel-indicators .active {width:100px;height:6px;margin: 0;background-color: #8dc63f;}
+
+
+
+
+/*contents*/
+#main-contents {padding-top: 70px;}
+#main-contents .con00 {float: left;width: 315px;height: 315px;}
+#main-contents .con07 {float: left;width: 630px;height: 315px;}
+
+/*background-image*/
+#main-contents .con01 {background: #c7cfb7 url(../img/web-d03/main-con01.png)}
+#main-contents .con02 {background: #f7f7e8 url(../img/web-d03/main-con02.png)}
+#main-contents .con03 {background: #f8ede3 url(../img/web-d03/main-con03.png)}
+#main-contents .con04 {background: #798777 url(../img/web-d03/main-con04.png)}
+#main-contents .con05 {background: #9dad7f url(../img/web-d03/main-con05.png)}
+#main-contents .con06 {background: #7c9473 url(../img/web-d03/main-con06.png)}
+#main-contents .con07 {background: url(../img/web-d03/main-con07.jpg);background-size:cover;}
+
+#main-contents .text-box {padding: 40px 0 0 40px;}
+#main-contents .text-box h3 {font-size:24px;font-weight: 600;margin-bottom: 20px;}
+#main-contents .text-box p {margin-bottom:20px;}
+#main-contents .text-box.f-wh h3, #main-contents .text-box.f-wh p {color:#fff;}
+#main-contents .text-box a.btn {display: block;width: 90px;height: 30px;border: 1px solid #888;line-height:15px;}
+#main-contents .text-box a.btn.wh {border: 1px solid #fff;color:#fff;}
+#main-contents .text-box a.btn:hover {background: #f7941e;color:#fff;border: 0;line-height: 16px;}
+
+
+
+/*contents2*/
+#main-contentsTwo {padding-top: 70px;margin-bottom: 70px;}
+#main-contentsTwo .textbox h3 {font-size:24px;font-weight: 600;}
+#main-contentsTwo .textbox p {color:#444;}
+#main-contentsTwo .notice, .company, .call {float: left;width: 393px;height: 280px;position : relative;margin-right: 40px;}
+
+
+/*공지사항*/
+#main-contentsTwo .notice .textbox {padding:0 20px;}
+#main-contentsTwo .notice .textbox h3 {border-bottom: 2px solid #d3d3d3;margin-bottom: 15px;padding-bottom:10px;}
+#main-contentsTwo .notice .btn-more {position: absolute;right: 20px;top: 20px;}
+#main-contentsTwo .notice li {margin-bottom: 10px;color:#444;}
+#main-contentsTwo .notice li:hover {text-decoration:underline;}
+
+
+/*한의원소개*/
+#main-contentsTwo .company {background: url(../img/web-d03/main-company.jpg);}
+#main-contentsTwo .company .textbox {text-align: center;padding-top:60px;}
+#main-contentsTwo .company .textbox h3 {margin-bottom: 20px;}
+
+/*진료안내*/
+#main-contentsTwo .call {margin-right: 0;text-align: center;background:#fafafa;}
+#main-contentsTwo .call h3 {font-size:18px;}
+#main-contentsTwo .call p {color:#f7941e;font-size:40px;font-weight: 600;}
+#main-contentsTwo .call ul {text-align-last: left;width:190px;margin: 0 auto;}
+#main-contentsTwo .call li {list-style:disc;margin-bottom: 5px;}
+#main-contentsTwo .call li span {margin-left:20px ;}
+
+
+
+/*footer*/
+#footer {padding-top: 20px;width: 100%;height: 270px;background: #3e483c;}
+#footer .footertop {width: 100%;padding:10px 0;margin-bottom: 20px;}
+#footer .footertop li {float: left;color:#606e5e;cursor: pointer;}
+#footer .footertop li:before {content:"";display: inline-block;width: 1px;height: 10px;margin:0 8px;background: #606e5e;}
+#footer .footertop li:first-child:before {display: none;}
+
+#footer .footerbt:before {content:"";display: block;width: 1260px;height: 2px;background: #5c685a;margin-bottom: 20px;}
+#footer .footerbt h1 {float: left;width: 185px;height: 56px;}
+#footer .footerbt h1 a {width: 100%;height: 100%;display: block;background:url(../img/web-d03/logo-ft.png) no-repeat; text-indent:-9999px;}
+#footer .footerbt address {float: left;margin-left:60px;color:#cccecc;font-size:14px;line-height: 24px;margin-bottom: 0;}
+
+
+
+
+/*띄어쓰기*/
+/*&nbsp; &ensp; &emsp;*/
+
+
+/*미디어쿼리*/
+@media (min-width:1200px) {
+	.container {width: 1260px;}
+	#main-contents .con07 {width: 630px !important;height: 315px;}
+}
+@media (min-width:992px) {
+	#main-contents .con07 {width: 945px;height: 315px;}
+	#myCarousel .carousel-caption h3 {font-size:36px;}
+	#myCarousel .carousel-caption p {font-size:18px;}
+}
+@media (min-width:768px) {

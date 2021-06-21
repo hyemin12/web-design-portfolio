@@ -1,0 +1,466 @@
+  <!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>비밀의 숲2</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/font.css">
+	<link rel="stylesheet" href="css/fullpage.css">
+	<link rel="stylesheet" href="slick/slick.css">
+	<link rel="stylesheet" href="slick/slick-theme.css">
+	<link rel="stylesheet" href="css/colorbox.css">
+	<link rel="stylesheet" href="css/style2.css">
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.fullPage.js"></script>
+	<script src="slick/slick.min.js"></script>
+	<script src="js/jquery.colorbox-min.js"></script>
+	<script>
+		$(function(){
+			$("#fullpage").fullpage({
+				menu:"#toggle_menu",
+				navigation:true,
+				navigationPosition: 'right',
+				anchors:["a1st","a2st","a3st","a4st","a5st"],
+				afterLoad:function(anchorslink,index){
+					console.log(anchorslink+", "+index);
+					if(index==1){
+						$(".slogo").hide();
+						$(".toggleWrap").removeClass("spage").addClass("page1");
+					}else{
+						$(".slogo").show();
+						$(".toggleWrap").removeClass("page1").addClass("spage");
+					}
+					if(index == 2){
+						$(".viewOne").addClass("move");
+					}else{
+						$(".viewOne").removeClass("move");
+					}
+					if(index == 5){
+						$(".viewTwo").addClass("move");
+					}else{
+						$(".viewTwo").removeClass("move");
+					}
+				}
+			});
+			// <----toggle---->
+			$(".toggle").click(function(){
+				var toggle = $(this).attr("class");
+				if(toggle == "toggle"){
+					$(this).addClass("sChange");
+					$(".gnb_wrap").animate({left:0});		
+				}else{
+					$(this).removeClass("sChange");
+					$(".gnb_wrap").animate({left:"100%"});
+				}
+			});	
+			$(".gnb li").hover(function(){
+				var i = $(this).index();
+				$(".gnb a").css("color","#444").eq(i).css("color","#fff").css("transition","0.3s");
+			},function(){
+				$(".gnb a").css("color","#fff").css("transition","0.3s")
+			});
+			$(".gnb li").click(function(){
+				$(".gnb_wrap").animate({left:"100%"});
+				$(".toggle").removeClass("sChange");
+			})
+
+			// <---season1 page--->
+			$("#page_s1").click(function(){
+					$(".content_S1").animate({left:0});
+					$(".season .txtWrap").hide();
+			})
+			$(".s1_btn").click(function(){
+				$(".content_S1").animate({left:"-100%"});
+				$(".season .txtWrap").show();
+			})
+			// <---season2 page--->
+			$("#page_s2").click(function(){
+					$(".content_S2").animate({left:0});
+					$(".season .txtWrap").hide();
+			})
+			$(".s2_btn").click(function(){
+				$(".content_S2").animate({left:"100%"});
+				$(".season .txtWrap").show();
+			})
+
+			// <---page3 slide--->
+			var current = 0;
+			var pslide = $(".pg3_slide li");
+			var x;
+			var spager = $(".p3_tab li");
+			var overbtn = false;
+
+			function slideNext(){
+				if(overbtn==false){
+					overbtn=true;
+					x = current + 1;
+
+					if(x == 6){x = 0};
+					pSlide("next");
+				}
+			}
+			function slidePrev(){
+				if(overbtn==false){
+					overbtn=true;
+					x = current - 1;
+					
+					if(x==-1){x=5};
+					pSlide();
+				}
+			}
+			function pSlide(view){
+				var currentsl = pslide.eq(current);
+				var moveSl = pslide.eq(x);
+				if(view == "next"){
+					$("#page3 .time").addClass("barView");
+					currentsl.css({left:0}).stop().animate({left:"-100%"},1000,function(){overbtn=false});
+					moveSl.css({left:"100%"}).stop().animate({left:0},1000,function(){$("#page3 .time").removeClass("barView");});
+					
+				}else{
+					currentsl.css({left:"0"}).stop().animate({left:"100%"},1000,function(){overbtn=false});
+					moveSl.css({left:"-100%"}).stop().animate({left:0},1000);
+				}
+				current = x;
+			};
+			$(".p3_prev").click(function(){
+				slidePrev();
+			});
+			$(".p3_next").click(function(){
+				slideNext();
+			});
+			spager.click(function(){
+				x = $(this).index();
+				pSlide("next");
+			})
+			function trigger(){
+				$(".p3_next").trigger("click");
+			}
+			setInterval(trigger,4800);
+
+			// <---page4 colorbox--->
+			$(".colorbox").colorbox({
+				rel:"colorbox",
+				innerWidth:600,
+				innerHeight:400
+			});
+
+			// <---page5 colorbox--->
+			$(".youtube").colorbox({
+				iframe:true,
+				innerWidth:"70%",
+				innerHeight:"60%"
+			});
+		})
+	</script>
+</head>
+<body>
+	<div class="mobielTxt" style="display: none;">
+		<p>본 포트폴리오는 pc버전입니다. 노트북 또는 데스크탑을 이용해주세요.</p>
+	</div>
+	<div id="toggle_menu">
+		<div class="menuWrap">
+			<h3 class="slogo s1">
+				<img src="img/logo_sub.png" alt="">
+			</h3>
+			<div class="toggleWrap">
+				<div class="toggle">
+					<div class="bar1"></div>
+					<div class="bar2"></div>
+					<div class="bar3"></div>
+				</div>
+			</div>
+		</div>
+		<div class="gnb_wrap">	
+			<ul class="gnb">
+				<li data-menuanchor="a1st"><a href="#a1st">HOME</a></li>
+				<li data-menuanchor="a1st"><a href="#a2st">SEASON</a></li>
+				<li data-menuanchor="a1st"><a href="#a3st">CHARACTER</a></li>
+				<li data-menuanchor="a1st"><a href="#a4st">PHOTO</a></li>
+				<li data-menuanchor="a1st"><a href="#a5st">VIDEO</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="fullpage">
+		<section class="section" id="page1" data-anchor="a1st">
+			<div class="background">
+				<video id="mainVideo" data-autoplay loop muted>
+					<source src="bg-stranger-01.mp4" type="video/mp4">
+				</video>
+			</div>
+			<div class="layer"></div>
+			<h1 class="logo fadeIn"><a href="index.html">LOGO</a></h1>
+			<h1 class="logo move">LOGO</h1>
+			<div class="txt">
+				<strong>SAT</strong>
+				<div class="bar"></div>
+				<strong>SUN</strong>
+			</div>
+			<div class="scroll">
+				<a href="#a2st"><img src="img/btn_scroll.png" alt=""></a>
+			</div>
+		</section>
+		<section class="section clearfix" id="page2" data-anchor="a2st">
+			<ul class="season">
+				<li class="season1">
+					<div class="bg"></div>
+					<div class="box"></div>
+					<div class="txtWrap viewOne">
+						<h3>비밀의 숲</h3>
+						<a href="#" id="page_s1">more</a>
+					</div>
+				</li>
+				<li class="season2">
+					<div class="bg"></div>
+					<div class="txtWrap viewOne">
+						<h3>비밀의 숲2</h3>
+						<a href="#" id="page_s2">more</a>
+					</div>
+				</li>
+			</ul>
+			<div class="content_S1">
+				<div class="s1_img">
+					<div class="s1_logo">
+						<img src="img/s1_content_logo.png" alt="">
+					</div>
+				</div>
+				<div class="s1_btn">
+					<img src="img/s1_btn.png" alt="">
+				</div>
+				<div class="s1_txtWrap">
+					<h3>비밀의 숲</h3>
+					<span>검찰 스폰서 살인사건과 그 이면에 숨겨진 진실을 파헤치는 내부 비밀 추적극</span>
+					<p>범인은 누구일까, 검찰 내부의 적일까?<br>
+					그를 노린 외부 누군가의 복수일까?<br>
+					아니면 피에 굶주린 미치광이의 소행?<br>
+					혼란과 첩첩의 용의자를 뚫고 시목은 어떻게 범인을 잡을 것인가?</p>
+					<a href="http://program.tving.com/tvn/stranger" target="_blank">공식사이트 바로가기</a>
+				</div>
+			</div>
+			<div class="content_S2">
+				<div class="s2_img"></div>
+				<div class="s2_btn">
+					<img src="img/s2_btn.png" alt="">
+				</div>
+				<div class="s2_txtWrap">
+					<h3>비밀의 숲2</h3>
+					<span>은폐된 사건들의 진실로 다가가는 내부 비밀 추적극</span>
+					<p>한 줌의 희망이 수백의 절망보다 낫다는 믿음 하에,<br>
+					멈추지 않고, 관망자가 아닌 참여자가 되길 바라는 마음으로<br>
+					다시 한 번 드라마를 시작합니다.</p>
+					<a href="http://program.tving.com/tvn/stranger2" target="_blank">공식사이트 바로가기</a>
+				</div>
+			</div>
+		</section>
+		<section class="section" id="page3" data-anchor="a3st">
+			<ul class="pg3_slide">
+				<li class="profile">
+					<div class="pBox">
+						<div class="body">
+							<h3>황시목(37세/검사)</h3>
+							<strong>｜現대검찰청 형사법제단 소속</strong>
+							<p>우태하 부장 검사가 이끄는 대검 형사법제단에 합류하게 된 시목. 나름 10년 차 검사지만 부장급들이 버티고 있는 법제단에선 제일 막내가 된 그는 검찰고유의 수사 권한 사수의 최전선에 투입되어 대척점에 선 여진과 재회한다. 2년 만에 찾아온 서울은 더욱 냉정하지만, 냉정과 온정을 차별치 않는 시목은 여전히 묵묵히 홀로 일할 뿐이다.</p>
+						</div>	
+					</div>
+					<div class="chimg">
+						<img src="img/profile1.png" alt="">
+					</div>
+				</li>
+				<li class="profile">
+					<div class="pBox">
+						<div class="body">
+							<h3>한여진(32세/경감)</h3>
+							<strong>｜現경찰청 수사구조혁신단 주임</strong>
+							<p>소속은 그대로 용산서이지만 경찰청 파견 근무 중인 여진. 수사권 독립을 목표로 하는 테스크포스팀인 수사구조혁신단의 일원으로서 경검의 협상테이블에 앉게 된다. 경검 대립이 날로 첨예해지는 와중에 여진은 본인이 속한 세계를 스스로 뒤엎어야 하는 상황에 맞닥뜨린다. 과연 그는 주저함 없이 행동에 나설 것인가.</p>
+						</div>	
+					</div>
+					<div class="chimg">
+						<img src="img/profile2.png" alt="">
+					</div>
+				</li>
+				<li class="profile">
+					<div class="pBox">
+						<div class="body">
+							<h3>서동재(40대 중반)</h3>
+							<strong>｜의정부지방검찰청 형사1부 검사</strong>
+							<p>남양주경찰서를 수사지휘관서로 둔 의정부지검 형사1부 소속 동재.<br>
+							동재는 스스로 법복을 벗어야하는 날이 온다면 어떻게 될까, 가늠해본다. 좋지 않은 인사고과에 후배 특임검사 손에 조사받은 전력도 있는 그는 과연 내가 부장 승진은 할 수 있을까, 싶다. 게다가 수도권 연속근무 금지령으로 앞으론 지방 갈 일만 남아 더 한탄이 나오지만 동재는 무너지는 하늘에도 솟아오를 구멍을 만드는 인물이다.<br>
+							대검 형사법제단, 동부지검, 한조까지 염두에 두고 어느 곳에 연줄을 대어 볼지 기회를 살핀다.</p>
+						</div>	
+					</div>
+					<div class="chimg">
+						<img src="img/profile3.png" alt="">
+					</div>
+				</li>
+				<li class="profile">
+					<div class="pBox">
+						<div class="body">
+							<h3>최빛(40대 초반)</h3>
+							<strong>｜경찰청 정보부장 겸 수사구조혁신단 단장</strong>
+							<p>경찰청 정보부장이자, 수사구조혁신단 단장을 맡고 있는 최빛.<br>
+							수사권조정에서 유리한 국면을 맞이한 경찰은 경무관 최빛을 단장으로 하는 수사혁신팀을 꾸리고 형소법 개정을 진척시켜 왔다. 무조건적으로 경찰을 옹호하지도 않으며 자신이 몸담은 정보경찰의 위험성을 진지하게 숙고할 줄도 안다.<br>
+							반면 현실적이기도 하다. 출세 지향적이고 실용주의적인 면모가 큰 원동력이 돼 지금 자리에까지 오를 수 있었다.</p>
+						</div>	
+					</div>
+					<div class="chimg">
+						<img src="img/profile4.png" alt="">
+					</div>
+				</li>
+				<li class="profile">
+					<div class="pBox">
+						<div class="body w900">
+							<h3>우태하(40대 후반)</h3>
+							<strong>｜형사법제단 부장검사</strong>
+							<p>엘리트 코스라 불리는 노른자위 요직만 골라서 섭렵해온 태하.<br>
+							검찰에 대한 인식이 최악인 상황에 법제단 책임자가 되어 검찰의 독점적 지위와 권한을 내려놓고 개혁에 임하라는 시대적 요구에 직면해있다. 검찰 커리어로썬 양날의 검을 쥔 형국이지만 태하는 사실 그리 위태롭지 않다.<br>
+							귀족검사인 탓인지 태도와 말투에 여유가 묻어나고 자신감이 배어있다. 이기적이진 않지만 상당한 개인주의며 평소엔 친숙한 듯해도 속은 권위주의다.</p>
+						</div>	
+					</div>
+					<div class="chimg">
+						<img src="img/profile5.png" alt="">
+					</div>
+				</li>
+				<li class="profile">
+					<div class="pBox">
+						<div class="body w900">
+							<h3>이연재 (40대 초반)</h3>
+							<strong>｜(주)한조그룹 회장 형사법제단 소속</strong>
+							<p>회장직이란 자리에 걸맞게 경영권을 지키랴, 천문학적인 벌금이 걸린 송사를 정부 상대로 벌이랴, 머리가 아프다.<br>
+							태어난 순간부터 재벌이며 이제는 중책까지 떠맡게 된 연재는 떠나간 남편을 그리워하거나 원망할 여유도 없다.<br>
+							하지만 정말 이창준이란 존재는 그녀에게 티끌만큼의 변화도 가져오지 못했을까?</p>
+						</div>	
+					</div>
+					<div class="chimg">
+						<img src="img/profile6.png" alt="">
+					</div>
+				</li>
+			</ul>
+			<div class="p3_btn">
+				<div class="p3_prev">
+					<img src="img/btn_prev.png" alt="">
+				</div>
+				<div class="p3_next">
+					<img src="img/btn_next.png" alt="">
+				</div>
+			</div>
+			<div class="p3_tab">
+				<ul class="clearfix">
+					<li class="active">황시목</li>
+					<li>한여진</li>
+					<li>서동재</li>
+					<li>최빛</li>
+					<li>유태하</li>
+					<li>이연재</li>
+				</ul>
+				<div class="time"></div>
+			</div>
+		</section>
+		<section class="section" id="page4" data-anchor="a4st">
+			<div class="bg"></div>
+			<div class="photoWrap">
+				<ul class="clearfix">
+					<li>
+						<div class=" b1">
+							<a href="img/img1.jpg" class="colorbox" title="황시목">황시목</a>
+						</div>
+						<div class="b2">
+							<a href="img/img2.jpg" class="colorbox" title="한여진"></a>
+						</div>
+					</li>
+					<li>
+						<div class="b3">
+							<div class="add">
+								<a href="http://program.tving.com/tvn/stranger2/7/Board/List" target="_blank"><img src="img/icon-add.png" alt=""></a>
+							</div>
+							<div class="txtWrap">
+								<h3>비밀의 숲2</h3>
+								<p>현장 스틸 이미지</p>
+							</div>	
+						</div>
+						<div class="b4">
+							<a href="img/img3.jpg" class="colorbox" title="서동재"></a>
+						</div>
+					</li>
+					<li>
+						<div class="b5">
+							<a href="img/img5.jpg" class="colorbox" title="경찰청"></a>
+						</div>
+						<div class=" b6">
+							<a href="img/img4.png" class="colorbox" title="이연재"></a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<section class="section" id="page5" data-anchor="a5st">
+			<div class="background">
+				<video id="page5Video" data-autoplay loop muted>
+					<source src="bg-stranger.mp4" type="video/mp4">
+				</video>
+			</div>
+			<div class="layer"></div>
+			<div class="vod">#VOD</div>
+			<div class="videoWrap viewTwo">
+				<ul class="clearfix">
+					<li>
+						<p class="title">다시보기</p>
+						<a href="http://www.tving.com/vod/player/E003215633" target="_blank">
+						<div class="bg5 one"></div>
+						<div class="icon">
+							<img src="img/icon-video.png" alt="">
+						</div>
+						<div class="hover">
+							<p>티빙으로 이동</p>
+						</div>
+					</a></li>
+					<li>
+						<p class="title">예고편</p>
+						<span><a href="http://program.tving.com/tvn/stranger2/1/Vod/List?vod_type=3&order=" target="_blank">더보기</a></span>
+						<a href="https://www.youtube.com/embed/TWEbBSOy0-k" class="youtube">
+						<div class="bg5 two"></div>
+						<div class="icon">
+							<img src="img/icon-video.png" alt="">
+						</div>	
+						<div class="hover">
+							<p>5화 예고 바로보기</p>
+						</div>
+					</a></li>
+					<li >
+						<p class="title">클립영상</p>
+						<span><a href="http://program.tving.com/tvn/stranger2/1/Vod/List?vod_type=2&order=" target="_blank">더보기</a></span>
+						<a href="https://www.youtube.com/embed/1x-Rvs3g-tI" class="youtube">
+						<div class="bg5 thr"></div>
+						<div class="icon">
+							<img src="img/icon-video.png" alt="">
+						</div>	
+						<div class="hover">
+							<p>4화 클립영상 바로보기</p>
+						</div>
+					</a></li>
+				</ul>
+			</div>
+			<footer id="footer">
+				<div class="box">
+					<div class="logoWrap clearfix">
+					<h3 class="tvn"><a href="http://tvn.tving.com/tvn" target="_blank">
+						<img src="img/tvn-w.png" alt="">
+					</a></h3>
+					<!-- <h3 class="tving"><a href="http://www.tving.com/main.do?utm_source=poc&utm_medium=referral&utm_campaign=tvinginfo" target="_blank"><img src="img/tving-w.png" alt=""></a></h3> -->
+					</div>
+					<address>대표이사 : 허민회, 허민호 | 사업자정보확인개인정보관리 책임자 : 고창남사업자등록번호 : 106-81-51510통신판매신고번호 : 서초 제 000015호<br>
+					Copyright (C) CJ ENM All Rights Reserved.</address>
+					<div class="sns">
+						<ul class="clearfix">
+							<li><a href="https://tv.naver.com/cjenm.tvnstranger2">naver</a></li>
+							<li><a href="https://www.youtube.com/playlist?list=PLdyB3s37qpTPAVT6VTz6Fif7E_1iPeLKu">ytb</a></li>
+							<li><a href="https://www.instagram.com/tvndrama.official/">insta</a></li>
+							<li><a href="https://www.facebook.com/tvNDrama/">facebook</a></li>
+							<li><a href="https://twitter.com/CJnDrama">twitter</a></li>
+						</ul>
+					</div>
+				</div>
+			</footer>
+		</section>
+	</div>
+</body>
+</html>

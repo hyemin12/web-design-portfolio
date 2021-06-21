@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>7th mini album [Nonstop]<</title>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/fullpage.css">
+	<link rel="stylesheet" href="css/font.css">
+	<link rel="stylesheet" href="css/all.css">
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.fullPage.js"></script>
+	<style>
+		#glayLayer{
+			width: 100%;height: 100%;background: #000;
+			position: fixed;top: 0;left: 0;
+			opacity:0.8;
+			display: none;
+		}
+		#overLayer{
+			position: fixed;top: 50%;left: 50%;
+			transform:translate(-50%,-50%);
+			display: none;
+		}
+		a.modal{width: 100%;height: 100%;}
+	</style>
+	<script>
+		$(function(){
+			$("#fullpage").fullpage();
+
+			$("#pageProfile").append("<div id='glayLayer'></div><div id='overLayer'></div>");
+
+			$("a.modal").click(function(e){
+				var aHref = $(this).attr("href");
+				$("#glayLayer").show();
+				$("#overLayer").show().html("<img src='"+aHref+"'>");
+				return false;
+			});
+			$("#glayLayer,#overLayer").click(function(){
+				$("#glayLayer").hide();
+				$("#overLayer").hide();
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="fullpage">
+		<section class="section" id="pageProfile">
+			<div class="bdProfile view ">
+				<div class="logo">
+					<img src="images/logo-profile.png" alt="">
+				</div>
+				<div class="board shake">
+					<ul class="clearfix table">
+						<li class="tr">
+							<img src="images/pro01.jpg" alt="">
+							<div class="click"><a href="images/p-hyojung.png"class="modal">
+								<p >효정(최효정)</p>
+							</a></div>
+						</li>
+						<li class="side">
+							<img src="images/pro02.jpg" alt="">
+						</li>
+						<li class="tr">
+							<img src="images/pro03.jpg" alt="">
+							<div class="click"><a href="https://www.instagram.com/wm_ohmygirl/">
+								<p>공식 인스타그램</p>
+							</a></div>
+						</li>
+						<li class="tr td">
+							<img src="images/pro04.jpg" alt="">
+							<div class="click imgprofile"><a href="images/p-mimi.jpg" class="modal">
+								<p >미미(김미현)</p>
+							</a></div>
+						</li>
+						<li class="tr">
+							<img src="images/pro05.jpg" alt="">
+							<div class="click"><a href="https://www.youtube.com/channel/UC-qYkzKFdekoEniRu_FS3zg">
+								<p>공식 유투브 채널</p>
+							</a></div>
+						</li>
+						<li class="rec">
+							<img src="images/pro06.jpg" alt="">
+						</li>
+						<li>
+							<img src="images/pro07.jpg" alt="">
+							<div class="click2 imgprofile"><a href="images/p-yooa.jpg" class="modal">
+								<p>유아(유시아)</p>
+							</a></div>
+						</li>
+						<li>
+							<img src="images/pro08.jpg" alt="">
+							<div class="click2 imgprofile"><a href="images/p-seunghee.jpg" class="modal">
+								<p>승희(현승희)</p>
+							</a></div>
+						</li>
+						<li>
+							<img src="images/pro09.jpg" alt="">
+							<div class="click2 imgprofile"><a href="images/p-jiho.jpg" class="modal">
+								<p>지호(김지호)</p>
+							</a></div>
+						</li>
+						<li>
+							<img src="images/pro10.jpg" alt="">
+							<div class="click2 imgprofile"><a href="images/p-binnie.png" class="modal">
+								<p>비니(배유빈)</p>
+							</a></div>
+						</li>
+						<li>
+							<img src="images/pro11.jpg" alt="">
+							<div class="click2 imgprofile"><a href="images/p-arin.jpg" class="modal">
+								<p>아린(최예원)</p>
+							</a></div>
+						</li>
+						<li class="rec">
+							<img src="images/pro12.jpg" alt="">
+							<div class="click3"><a href="http://ohmy-girl.com/omg_official/">
+								<p>공식홈페이지</p>
+							</a></div>
+						</li>
+					</ul>	
+				
+					<div class="deco">
+						<img src="images/profile-bear.png" alt="">
+					</div>
+					<div class="decodice1">
+						<img src="images/dice1.png" alt="" class="dice01">
+					</div>
+					<div class="decodice2">
+						<img src="images/dice2.png" alt="" class="dice01">
+					</div>
+				</div> <!-- board -->
+				<div class="reset">
+					<ul>
+						<li class="icon-home clearfix"><a href="index2.html#a2st">
+							<div class="circle">
+								<i class="fas fa-angle-double-left"></i>
+								<div class="hover">
+									<p>Home</p>
+								</div>
+							</div>
+						</a></li>
+						<li class="icon-profile  clearfix"><a href="profile2.html">
+							<div class="circle active">
+								<i class="fas fa-user"></i>
+								<div class="hover">
+									<p>Profile</p>
+								</div>
+							</div>
+						</a></li>
+						<li class="icon-album clearfix"><a href="album.html">
+							<div class="circle">
+								<i class="fas fa-compact-disc"></i>
+								<div class="hover">
+									<p>Album</p>
+								</div>
+							</div>
+						</a></li>
+						<li class="icon-link"><a href="https://youtu.be/obesWjbPUo0" target="_blank">
+							<div class="circle long">
+								<i class="fas fa-headphones"></i>
+								<div class="hover w150">
+									<p>Highlight Medley</p>
+								</div>
+							</div>
+						</a></li>
+					</ul>
+				</div>	
+			</div> <!-- bfprofile -->
+		</section>
+	</div>
+</body>
+</html>

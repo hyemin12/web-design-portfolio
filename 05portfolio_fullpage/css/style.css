@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+
+@import "pc1920.css" screen and (min-width:1920px);
+
+@import "pc.css" screen and (min-width:1025px) and (max-width:1919px);
+
+@import "mobile.css" screen and (max-width:1024px);

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>고혜민의 포트폴리오</title>
+	<!-- font -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/fullpage.css">
+
+	<!-- js -->
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.fullPage.js"></script>
+	<script>
+		$(function(){
+			$("#fullpage").fullpage({
+				menu:"#toggle_menu",
+				anchors:["a1st","a2st","a3st","a4st"],
+				'afterLoad':function(anchorslink,index){
+					console.log(anchorslink+", "+index);
+					if(index == 1){
+						$("#page1 li").addClass("stagger-item");
+						$("#page1 h3").addClass("stagger-item");
+					}else{
+						$("#page1 li").removeClass("stagger-item");
+						$("#page1 h3").removeClass("stagger-item");
+					}
+					if(index == 2){
+						$("#page2 .textWrap>p, #page2 .textWrap>div").addClass("stagger-item");
+						$("#page2 .button").addClass("stagger-item");
+					}else{
+						$("#page2 .textWrap>p, #page2 .textWrap>div").removeClass("stagger-item");
+						$("#page2 .button").removeClass("stagger-item");
+					}
+					if(index == 3){
+						$("#page3 h1").addClass("stagger-item");
+					}else{
+						$("#page3 h1").removeClass("stagger-item");
+					}
+					if(index == 4){
+						$("#page4 .workWrap>ul>li").addClass("stagger-item");
+					}else{
+						$("#page4 .workWrap>ul>li").removeClass("stagger-item");
+					}
+				}
+			});
+			//toggle
+			$(".toggleWrap").click(function(){
+				var toggle = $(this).attr("class");
+				if(toggle == "toggleWrap"){
+					$(".toggleWrap").addClass("tChange");
+					$(".gnbWrap").stop().animate({left:0});
+				}else{
+					$(".toggleWrap").removeClass("tChange");
+					$(".gnbWrap").stop().animate({left:"100%"});
+				}
+			});
+			$(".gnbWrap li").click(function(){
+				$(".gnbWrap").animate({left:"100%"});
+				$(".toggleWrap").removeClass("tChange");
+			})
+			//project hover
+			$("#page3 .imgWrap>ul>li").hover(function(){
+				var i = $(this).index();
+				$("#page3 .imgWrap>ul>li").css("transform","scale(1)").css("transition","0.3s").css("z-index","1").css("box-shadow","0 0 0");
+				$("#page3 .imgWrap>ul>li").eq(i).css("transform","scale(1.2)").css("transition","0.3s").css("z-index","3").css("box-shadow","5px 5px 10px,-5px 5px 10px");
+				$("#page3 .imgWrap .hover").css("display","none").css("transition","0.3s");
+				$("#page3 .imgWrap .hover").eq(i).css("display","block").css("transition","0.3s");
+
+			})
+		})
+	</script>
+
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="mobile">
+		본 포트폴리오는 피시버전으로 제작되었습니다.<br>
+		노트북이나 데스크탑으로 오픈해주세요.<br>
+		감사합니다.
+	</div>
+	<div id="toggle_menu">
+		<div class="menuWrap">
+			<h1 class="logo">
+				<a href="index.html#a1st">
+					<img src="img/logo.png" alt="로고">
+				</a>
+			</h1>
+			<div class="toggleWrap">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>
+		</div>
+		<div class="gnbWrap" style="left:100%">
+			<div class="imgGif"></div>
+			<ul class="gnb engF">
+				<li><a href="index.html#a1st">Home</a></li>
+				<li><a href="index.html#a2st">About</a></li>
+				<li><a href="index.html#a3st">Project</a></li>
+				<li><a href="index.html#a4st">Works</a></li>
+			</ul>
+			<div class="info engF">
+				<p>Seoul,Republic of Korea<br>
+				+82 10 2053 8583<br>
+				hye_min12@hanmail.net</p>
+			</div>
+		</div>
+	</div>
+	<div id="fullpage">
+		<section class="section" id="page1" data-anchor="a1st">
+			<div class="bg"></div>
+			<ul class="textWrap engF stagger-wrapper">
+				<li class="stagger-item">
+					<div class="text">Be you,</div>
+				</li>
+				<li class="stagger-item">
+					<div class="text">Be unique,</div>
+				</li>
+				<li class="stagger-item">
+					<div class="text">Be crazy.</div>
+				</li>
+			</ul>
+			<h3 class="stagger-item">ui/ux portfolio - 2021</h3>
+			<div class="scroll ">
+				<div class="rec">
+					<div class="wheel"></div>
+				</div>
+			</div>
+		</section>
+		<section class="section" id="page2" data-anchor="a2st">
+			<div class="image ">
+				<img src="img/about2.jpg" alt="">
+			</div>
+			<div class="textWrap engF">
+				<p>Hi,</p>
+				<p>I'm <span>Hyemin,</span></p>
+				<p>UI/UX desinger</p>
+				<div class="pSmall">Web designer / Web publisher</div>
+				<ul class="button clearfix"><a href="profile.html">
+					<li class="circle">→</li>
+					<li class="text">이력서 보기</li>
+				</a></ul>
+			</div>
+			
+			<!-- <h3>ui/ux portfolio - 2021</h3> -->
+			<div class="scroll">
+				<div class="rec">
+					<div class="wheel"></div>
+				</div>
+			</div>
+		</section>
+		<section class="section" id="page3" data-anchor="a3st">
+			<!-- <div class="bgi"></div> -->
+			<h1 class="engF">Project</h1>
+			<div class="imgWrap">
+				<ul>
+					<li>
+						<div class="hover">
+							<div class="bg"></div>
+							<div class="textWrap">
+								<h3 class="stagger-item"style="font-size:30px">수원삼성블루윙즈</h3>
+								<p class="stagger-item">gnuboard  I  only pc ver.</p>
+								<ul class="button clearfix stagger-item"><a href="http://hyemin12.dothome.co.kr/main/" target="_blank">
+									<li class="circle">→</li>
+									<li class="text">홈페이지 가기</li>
+								</a></ul>
+							</div>
+							<div class="underTxt stagger-item">PHP파일을 수정해 제작한 그누보드 기반 홈페이지</div>
+						</div>
+					</li>
+					<li>
+						<div class="hover">
+							<div class="bg"></div>
+							<div class="textWrap">
+								<h3 class="stagger-item">비밀의 숲2</h3>
+								<p class="stagger-item">fullpage  I  only pc ver.</p>
+								<ul class="button clearfix stagger-item"><a href=" https://hyemin12.github.io/test_page/08Stranger2/index.html" target="_blank">
+									<li class="circle">→</li>
+									<li class="text">홈페이지 가기</li>
+								</a></ul>
+							</div>
+							<div class="underTxt stagger-item">jQuery fullpage 플러그인을 적용한 풀페이지 화면 </div>
+						</div>
+					</li>
+					<li>
+						<div class="hover">
+							<div class="bg"></div>
+							<div class="textWrap">
+								<h3 class="stagger-item" style="font-size:28px">오마이걸 공식홈페이지</h3>
+								<p class="stagger-item">fullpage  I  only pc ver.</p>
+								<ul class="button clearfix stagger-item"><a href="http://hyemin12.github.io/portfolio/[FULL]OHMYGIRL/index2.html" target="_blank">
+									<li class="circle">→</li>
+									<li class="text">홈페이지 가기</li>
+								</a></ul>
+							</div>
+							<div class="underTxt stagger-item">jQuery fullpage 플러그인을 적용한 풀페이지 화면 </div>
+						</div>
+					</li>
+					<li>
+						<div class="hover">
+							<div class="bg"></div>
+							<div class="textWrap">
+								<h3 class="stagger-item">멜론뮤직</h3>
+								<p class="stagger-item">Responsive Web</p>
+								<ul class="button clearfix stagger-item"><a href="https://hyemin12.github.io/test_page/06Melon/index.html" target="_blank">
+									<li class="circle">→</li>
+									<li class="text">홈페이지 가기</li>
+								</a></ul>
+							</div>
+							<div class="underTxt stagger-item" style="left:11px">CSS media queries를 이용한 반응형 홈페이지</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="scroll">
+				<div class="rec">
+					<div class="wheel"></div>
+				</div>
+			</div>
+		</section>
+		<section class="section" id="page4" data-anchor="a4st">
+			<div class="bgi"></div>
+			<div class="workWrap">
+				<ul class="clearfix">
+					<li>
+						<div class="hover">
+							<div class="bg"></div>
+							<div class="textWrap">
+								<h3>NCT DREAM</h3>
+								<p>NCT DREAM  공식 홈페이지 리뉴얼<br>메인, 메뉴, 프로필 페이지 작동<br>PC VER</p>
+								<ul class="button clearfix"><a href="http://hyemin12.github.io/portfolio/[full]NCTDREAM/index.html" target="_blank">
+									<li class="circle">→</li>
+									<li class="text">홈페이지 가기</li>
+								</a></ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="hover">
+							<div class="bg"></div>
+							<div class="textWrap">
+								<h3>여행사 홈페이지</h3>
+								<p>가상의 여행사 홈페이지<br>메인, 회사소개 페이지 작동<br>PC VER</p>
+								<ul class="button clearfix"><a href="https://hyemin12.github.io/test_page/05travel/index.html" target="_blank">
+									<li class="circle">→</li>
+									<li class="text">홈페이지 가기</li>
+								</a></ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="hover">
+							<div class="bg"></div>
+							<div class="textWrap">
+								<h3>한국대학교</h3>
+								<p>가상의 대학교 홈페이지<br>메인 페이지 작동(서브페이지 작동 X)<br>PC VER</p>
+								<ul class="button clearfix"><a href="https://hyemin12.github.io/test_page/03HKU/index.html" target="_blank">
+									<li class="circle">→</li>
+									<li class="text">홈페이지 가기</li>
+								</a></ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="hover">
+							<div class="bg"></div>
+							<div class="textWrap">
+								<h3>HAP FESTIVAL</h3>
+								<p>HAP FESTIVAL 기존 홈페이지 <br>메인페이지 퍼블리싱함<br>PC VER</p>
+								<ul class="button clearfix"><a href="https://hyemin12.github.io/test_page/00HAPFESTIVAL/index.html" target="_blank">
+									<li class="circle">→</li>
+									<li class="text">홈페이지 가기</li>
+								</a></ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="hover">
+							<div class="bg"></div>
+							<div class="textWrap">
+								<h3>KLASS</h3>
+								<p>KLASS 기존 홈페이지 <br>메인페이지 퍼블리싱함<br>PC VER</p>
+								<ul class="button clearfix"><a href="https://hyemin12.github.io/test_page/04klass/index.html" target="_blank">
+									<li class="circle">→</li>
+									<li class="text">홈페이지 가기</li>
+								</a></ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="hover">
+							<div class="bg"></div>
+							<div class="textWrap">
+								<h3>여행사 이벤트</h3>
+								<p>여행사 이벤트 페이지를<br>부다페스트 컨셉으로 디자인함<br>PC VER</p>
+								<ul class="button clearfix"><a href="travel.html" target="_blank">
+									<li class="circle">→</li>
+									<li class="text">페이지 디자인</li>
+								</a></ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="hover">
+							<div class="bg"></div>
+							<div class="textWrap">
+								<h3>롯데카드 프로모션</h3>
+								<p>롯데카드 가정의 달 프로모션<br>이벤트 관련 페이지를 디자인함<br>PC VER</p>
+								<ul class="button clearfix"><a href="card.html" target="_blank">
+									<li class="circle">→</li>
+									<li class="text">페이지 디자인</li>
+								</a></ul>
+							</div>
+						</div>
+					</li>
+					<li class="engF">Work</li>
+				</ul>
+			</div>
+		</section>
+	</div>
+</body>
+</html>
