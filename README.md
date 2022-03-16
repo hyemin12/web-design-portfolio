@@ -8,7 +8,7 @@
 #수원삼성블루윙즈 <br>
   https://hyemin12.github.io/web-design-portfolio/02bluewings <br>
 #오마이걸(미니4집 발매 기념) <br>
-  https://hyemin12.github.io/web-design-portfolio/03OHMYGIRL <br>
+  https://hyemin12.github.io/web-design-portfolio/03OHMYGIRL/index2.html <br>
 #멜론 <br>
   https://hyemin12.github.io/web-design-portfolio/04Melon <br>
 #포트폴리오(풀페이지) <br>
